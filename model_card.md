@@ -2,14 +2,14 @@
 
 ## 1. Model Name  
 
-
-**ASongForYou**
+BeatBuddy
 
 ---
 
 ## 2. Intended Use  
 
 This recommender is designed for classroom exploration and learning, not for real-world music streaming. It generates song recommendations from a small, fixed catalog based on a user's stated preferences for genre, mood, energy, and other features. The system assumes users know what they like and can specify their favorite genre, mood, and target values for features like tempo or valence. It is not intended for commercial use or for users with highly complex or evolving tastes.
+
 ---
 
 ## 3. How the Model Works  
@@ -27,6 +27,7 @@ The dataset contains 20 songs, each with features like genre, mood, artist, ener
 ## 5. Strengths  
 
 The system works well for users whose preferences match the genres and moods in the dataset. It gives clear, explainable recommendations, and the reasons for each pick are easy to understand. The model is good at finding songs that are close to the user's target energy, tempo, or valence. It is transparent, so users can see exactly why a song was recommended.
+
 ---
 
 ## 6. Limitations and Bias 
@@ -52,4 +53,4 @@ If I extended this project, I would swap out all the songs in the dataset for tr
 ## 9. Personal Reflection  
 
 
-Building this recommender showed me how complex real music apps like Spotify must be, since they serve millions of users and use far more features than my simple system. I learned it’s hard to recommend music to people with very specific tastes—users with extreme preferences only got low-scoring, generic results, which made the system feel unhelpful for them. I also realized how much human judgment still matters, because the model can only use the features it has and might miss what really makes a song enjoyable for someone. I was surprised that even a simple scoring system could still feel somewhat personalized. I also found it important to double-check the changes suggested by AI tools, to make sure the code still made sense.
+Building this recommender showed me how complex real music apps like Spotify must be, since they serve millions of users and use far more features than my simple system. I learned it’s hard to recommend music to people with very specific tastes. For example, users with extreme preferences only got low-scoring, generic results, which made the system feel unhelpful for them. I also realized how much human judgment still matters, because the model can only use the features it has and might miss what really makes a song enjoyable for someone. I was surprised that even a simple scoring system could still feel somewhat personalized. I also found it important to double-check the changes suggested by AI tools, to make sure the code still made sense.

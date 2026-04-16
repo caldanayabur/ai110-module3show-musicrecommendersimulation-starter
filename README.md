@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-This is a simple music recommender for learning. It suggests songs from a small list based on what you like—such as genre, mood, and energy. Songs get points for matching your preferences, and the top ones are recommended with a short reason why. The project shows how basic recommenders work and where they can be limited or biased.
+This is a simple music recommender for learning. It suggests songs from a small list based on what you like, such as genre, mood, and energy. Songs get points for matching your preferences, and the top ones are recommended with a short reason why. The project shows how basic recommenders work and where they can be limited or biased.
 
 ---
 
