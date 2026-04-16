@@ -64,8 +64,32 @@ This system might over-prioritize genre, so it could ignore great songs that mat
 
 ---
 
-Recommendations output:
-![alt text](Output.png)
+
+## Screenshots
+
+
+Example output from the CLI simulation:
+
+![CLI Recommendations Output](Output.png)
+
+---
+
+#### Individual User Profile Outputs
+
+**User Profile 1**  
+Impossible match: genre and mood not in dataset, extreme energy
+
+![User_Profile_1 Output](User_Profile_1.png)
+
+**User Profile 2**  
+Contradictory: likes acoustic but wants high energy and danceability
+
+![User_Profile_2 Output](User_Profile_2.png)
+
+**User Profile 3**  
+Minimal info: all fields missing or None
+
+![User_Profile_3 Output](User_Profile_3.png)
 
 
 
