@@ -33,10 +33,13 @@ def main() -> None:
             "target_acousticness": 0.95,
             "likes_acoustic": True
         },
-        # 3. All fields missing or None (minimal info)
+        # 3. Diverse: prefers high valence, moderate tempo, and relaxed mood
         {
-            # No genre, mood, or targets
-            "likes_acoustic": False
+            "favorite_genre": "jazz",
+            "favorite_mood": "relaxed",
+            "target_valence": 0.7,
+            "target_tempo": 90,
+            "likes_acoustic": True
         }
     ]
 

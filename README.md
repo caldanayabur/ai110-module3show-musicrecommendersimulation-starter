@@ -87,7 +87,7 @@ Contradictory: likes acoustic but wants high energy and danceability
 ![User_Profile_2 Output](User_Profile_2.png)
 
 **User Profile 3**  
-Minimal info: all fields missing or None
+Prefers jazz, relaxed mood, high valence, moderate tempo, and acoustic music
 
 ![User_Profile_3 Output](User_Profile_3.png)
 
@@ -130,11 +130,49 @@ You can add more tests in `tests/test_recommender.py`.
 
 ## Experiments You Tried
 
-Use this section to document the experiments you ran. For example:
 
-- What happened when you changed the weight on genre from 2.0 to 0.5
-- What happened when you added tempo or valence to the score
-- How did your system behave for different types of users
+### What happened when you changed the weight on genre from 2.0 to 0.5
+When I set the genre match score to 0.5 instead of 2.0, I realized there was no change for the first user because the feature it considered for the score was energy similarity. For the second user, the top recommendations were the same songs but in a different order. For the third user, songs were the same in the same order, but the score was lower for the first song.
+
+### What happened when you added tempo or valence to the score
+The first user got the same recommendations because the feature that mattered was energy similarity. The second one too. The third user got the same recommendations but with higher scores.
+
+
+### How did your system behave for different types of users?
+
+**User Profile 1** (favorite_genre: k-pop, favorite_mood: melancholy, target_energy: 1.5, likes_acoustic: True)
+
+Top recommendations:
+
+1. Steel Skies (Iron Brigade) — Score: 0.49 — energy similarity (+0.49)
+2. Quantum Leap (Future Logic) — Score: 0.47 — energy similarity (+0.47)
+3. Gym Hero (Max Pulse) — Score: 0.43 — energy similarity (+0.43)
+4. Fiesta Nights (La Rumba) — Score: 0.42 — energy similarity (+0.42)
+5. Storm Runner (Voltline) — Score: 0.41 — energy similarity (+0.41)
+
+**User Profile 2** (favorite_genre: jazz, favorite_mood: relaxed, target_energy: 0.95, target_danceability: 0.95, target_acousticness: 0.95, likes_acoustic: True)
+
+Top recommendations:
+
+1. Coffee Shop Stories (Slow Stereo) — Score: 4.42 — genre match (+2.0), mood match (+1.0), acousticness close (+1.0), energy similarity (+0.42)
+2. Gym Hero (Max Pulse) — Score: 1.98 — danceability close (+1.0), energy similarity (+0.98)
+3. Quantum Leap (Future Logic) — Score: 1.98 — danceability close (+1.0), energy similarity (+0.98)
+4. Fiesta Nights (La Rumba) — Score: 1.97 — danceability close (+1.0), energy similarity (+0.97)
+5. Pixel Parade (Bitcrush) — Score: 1.93 — danceability close (+1.0), energy similarity (+0.93)
+
+**User Profile 3** (favorite_genre: jazz, favorite_mood: relaxed, target_valence: 0.7, target_tempo: 90, likes_acoustic: True)
+
+Top recommendations:
+
+1. Coffee Shop Stories (Slow Stereo) — Score: 5.00 — genre match (+2.0), mood match (+1.0), tempo close (+1.0), valence close (+1.0)
+2. Focus Flow (LoRoom) — Score: 2.00 — tempo close (+1.0), valence close (+1.0)
+3. Golden Fields (Harvest Moon) — Score: 2.00 — tempo close (+1.0), valence close (+1.0)
+4. Sunrise City (Neon Echo) — Score: 1.00 — valence close (+1.0)
+5. Midnight Coding (LoRoom) — Score: 1.00 — valence close (+1.0)
+
+
+### What happened when you disabled the mood check
+When I disabled the mood check, songs that matched the user's favorite mood lost their bonus point. For User Profile 2 and 3, "Coffee Shop Stories" dropped in score but stayed at the top, and the total scores for all users were lower. The order of the top 5 changed for User Profile 3, and the reasons for each recommendation no longer included mood match. The system relied more on genre, tempo, valence, and energy similarity.
 
 ---
 
