@@ -26,16 +26,41 @@ Each `Song` should use the features energy, tempo_bpm, valence, danceability, ac
 `UserProfile` should store the user's favorite genre, favorite mood, target energy, and if they like acoustic music.
 
 The songs with the highest scores are recommended to the user. I want for the user to be able to specify how many songs they want to be recommended.
+---
 
-Some prompts to answer:
+**What features does each Song use?**
+- genre, mood, artist, energy, tempo_bpm, valence, danceability, acousticness
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-- What information does your `UserProfile` store
-- How does your `Recommender` compute a score for each song
-- How do you choose which songs to recommend
+**What information does your UserProfile store?**
+- favorite genre, favorite mood, favorite artist (optional), target energy, target tempo, target valence, target danceability, target acousticness, number of recommendations wanted
 
-You can include a simple diagram or bullet list if helpful.
+**How does your Recommender compute a score for each song?**
+- For each song, add points for matching genre (+2), mood (+1), artist (+1), and for being close to the user's targets for energy, tempo, valence, danceability, and acousticness (+1 each if within a threshold). Add a similarity score for energy (1 - absolute difference).
+
+**How do you choose which songs to recommend?**
+- After scoring all songs, sort them by score and recommend the top K songs as requested by the user.
+
+---
+
+**Data Flow Diagram (Mermaid.js):**
+
+```mermaid
+flowchart TD
+  A[User Preferences (Genre, Mood, Energy, etc.)] --> B[Load Songs from CSV]
+  B --> C{For each Song}
+  C --> D[Compute Score:\n  +2 Genre match\n  +1 Mood match\n  +1 Artist match\n  +1 Tempo close\n  +1 Danceability close\n  +1 Acousticness close\n  +1 Valence close\n  +Similarity for Energy]
+  D --> E[Store Song & Score]
+  E --> F{All Songs Scored?}
+  F -- No --> C
+  F -- Yes --> G[Sort Songs by Score]
+  G --> H[Select Top K Songs]
+  H --> I[Output: Recommendations]
+```
+
+---
+
+**Potential Bias Note:**  
+This system might over-prioritize genre, so it could ignore great songs that match the user's mood or other preferences but are in a different genre. It may also favor songs with features close to the user's targets, even if those features are less important to the user.
 
 ---
 
