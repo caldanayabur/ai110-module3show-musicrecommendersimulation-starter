@@ -64,6 +64,11 @@ This system might over-prioritize genre, so it could ignore great songs that mat
 
 ---
 
+Recommendations output:
+![alt text](Output.png)
+
+
+
 ## Getting Started
 
 ### Setup
