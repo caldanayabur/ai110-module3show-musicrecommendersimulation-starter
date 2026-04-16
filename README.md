@@ -36,7 +36,7 @@ The songs with the highest scores are recommended to the user. I want for the us
 
 ```mermaid
 flowchart TD
-  A[User Preferences (Genre, Mood, Energy, etc.)] --> B[Load Songs from CSV]
+  A[User Preferences: Genre, Mood, Energy, etc.] --> B[Load Songs from CSV]
   B --> C{For each Song}
   C --> D[Compute Score:<br>+2 Genre match<br>+1 Mood match<br>+1 Artist match<br>+1 Tempo close<br>+1 Danceability close<br>+1 Acousticness close<br>+1 Valence close<br>+Similarity for Energy]
   D --> E[Store Song & Score]
