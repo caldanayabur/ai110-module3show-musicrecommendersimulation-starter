@@ -15,6 +15,7 @@ Each `Song` should use the features energy, tempo_bpm, valence, danceability, ac
 `UserProfile` should store the user's favorite genre, favorite mood, target energy, and if they like acoustic music.
 
 The songs with the highest scores are recommended to the user. I want for the user to be able to specify how many songs they want to be recommended.
+
 ---
 
 **What features does each Song use?**
@@ -178,12 +179,9 @@ Limitations:
 
 ## Personal Reflection
 
-Building this recommender showed me how complex are the systems used by music apps like Spotify, that has millions of users and certainly many more features than what my recommender system uses. I learned that it is hard to recommend music to people with very specific tastes. For example, users with extreme preferences (like very high energy) got only low-scoring, generic recommendations, making the system feel unresponsive for them. It also made me realize how much human judgment still matters in music recommendation, since the model can only work with the features it has and may miss important aspects of what makes a song enjoyable to a particular person.
 
-I used the regular gpt 4 to help me, and I have to double check the changes it was making to the functions and if they made sense.
+Building this recommender showed me how complex the systems used by music apps like Spotify must be, since they serve millions of users and use many more features than my simple system. I learned that it is hard to recommend music to people with very specific tastes. For example, users with extreme preferences (like very high energy) got only low-scoring, generic recommendations, making the system feel unresponsive for them. It also made me realize how much human judgment still matters in music recommendation, since the model can only work with the features it has and may miss important aspects of what makes a song enjoyable to a particular person. I was surprised at how the simple scoring system could still feel somewhat personalized.
 
-I was surprised on how the simple scoring system could still feel somehow personalized.
-
-If I extended this project, I would provide change all the songs in the dataset to be from my own music library, so that I can test it with my own preferences to see if it really can give good recommendations.
+If I extended this project, I would change all the songs in the dataset to be from my own music library, so I could test it with my own preferences and see if it really can give good recommendations. I also used GPT-4 to help me, but I had to double check the changes it was making to the functions to make sure they made sense.
 
 ---
